@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   # optional - use expanded license entry instead:
   # s.license    = { :type => "MIT", :file => "LICENSE" }
   s.authors      = { "MyFiziq Dev" => "dev@myfiziq.com" }
-  s.platforms    = { :ios => "9.0" }
+  s.platforms    = { :ios => "13.4" }
   s.source       = { :git => "https://github.com/MyFiziqApp/react-native-myfiziq-turnkey.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
