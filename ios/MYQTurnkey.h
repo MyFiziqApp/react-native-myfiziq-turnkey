@@ -1,5 +1,6 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
+#import <React/RCTLog.h>
 
 /* Error codes. */
 typedef NS_ENUM(NSInteger, RNMYQTKError) {

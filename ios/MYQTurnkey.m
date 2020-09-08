@@ -14,12 +14,12 @@ RCT_REMAP_METHOD(setup,
                  setupWithResolver:(RCTPromiseResolveBlock)resolve
                  ejecter:(RCTPromiseRejectBlock)reject)
 {
-    RCTLogInfo(@"MYQTK: setup() called");
+    RCTLog(@"MYQTK: setup() called");
     // Check params
-    if (!key || !se || !env) {
+    if (!key || !sec || !env) {
         if (reject) reject(@"MYQTK: setup() - Invalid param",
                            RNMYQTK_ERR_DOMAIN,
-                           [NSError errorWithDomain:RNMYQTK_ERR_DOMAIN code:RNMYQTKErrorErrorSetupParamNil userInfo:@{NSLocalizedDescriptionKey:@"Invalid param"]});
+                           [NSError errorWithDomain:RNMYQTK_ERR_DOMAIN code:RNMYQTKErrorErrorSetupParamNil userInfo:@{NSLocalizedDescriptionKey:@"Invalid param"}]);
     }
     // Call setup
     NSDictionary<NSString *, NSString *> *credentials = @{
@@ -28,13 +28,13 @@ RCT_REMAP_METHOD(setup,
         MFZSdkSetupEnvironment:env
     };
     [[MyFiziqTurnkey shared] setupWithConfig:credentials success:^{
-        RCTLogInfo(@"MYQTK: setup() - success");
+        RCTLog(@"MYQTK: setup() - success");
         if (resolve) resolve(nil);
     } failure:^(NSError *error){
-        RCTLogInfo(@"MYQTK: setup() - failed");
+        RCTLog(@"MYQTK: setup() - failed");
         if (reject) reject(@"MYQTK: setup() - failed",
-                            RNMYQTKErrorErrorSetupFailed,
-                            [NSError errorWithDomain:RNMYQTK_ERR_DOMAIN code:RNMYQTKErrorErrorSetupFailed userInfo:@{NSLocalizedDescriptionKey:@"MYQTK: setup() - failed"]}]);
+                           RNMYQTK_ERR_DOMAIN,
+                           [NSError errorWithDomain:RNMYQTK_ERR_DOMAIN code:RNMYQTKErrorErrorSetupFailed userInfo:@{NSLocalizedDescriptionKey:@"MYQTK: setup() - failed"}]);
     }];
 }
 
